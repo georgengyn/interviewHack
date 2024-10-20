@@ -3,6 +3,7 @@ let audioChunks = [];
 let isRecording = false;
 
 const recordButton = document.getElementById('recordButton');
+const feedbackText = document.getElementById('test');
 
 recordButton.addEventListener('click', () => {
     if (isRecording) {
@@ -38,18 +39,22 @@ function stopRecording() {
             recorder.stop();
             recorder.onstop = e => {
                 const audioBlob = new Blob(audioChunks, { type: 'audio/mp3' });
-
                 const formData = new FormData();
                 formData.append('audio', audioBlob, 'recording.mp3');
 
-                // Send the recorded file to the backend
                 fetch('/upload', {
                     method: 'POST',
                     body: formData
                 })
                 .then(response => response.json())
-                .then(data => {
-                    console.log('File uploaded successfully:', data);
+                .then(data => { //data received from flask
+                    if (data.next_question_url) {
+                        window.location.href = data.next_question_url;
+                    } else {
+                       // window.location.href = 
+                       //should redirct to finish page
+                       
+                    }
                 })
                 .catch(error => {
                     console.error('Error uploading file:', error);
