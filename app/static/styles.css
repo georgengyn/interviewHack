@@ -18,6 +18,11 @@
     margin: 0 auto;
 }
 
+#feedbackText {
+    outline-style: solid;
+    text-align: center;
+}
+
 .stuff {
     position: absolute;
     top:  50%;
