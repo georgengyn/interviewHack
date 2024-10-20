@@ -57,7 +57,7 @@ def upload_file():
     qIndex += 1
     
     if (qIndex >= questions.length):
-        qIndex = 0;
+        qIndex = 0
     
     response = client.chat.completions.create(
         model="gpt-4o",
