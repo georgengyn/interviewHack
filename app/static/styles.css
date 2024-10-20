@@ -1,0 +1,26 @@
+#questionText {
+    font-size: 60px;
+    height: auto;
+    width: 100%;
+    margin-bottom: 30px;
+    margin-top: 10px;
+    text-align: center;
+}
+
+#recordButton {
+    background-color: blueviolet;
+    color: white;
+    font-size: 24px;
+    padding: 15px 32px;
+    text-align: center;
+    cursor: pointer;
+    display: block; /* Ensure it's treated as a block-level element */
+    margin: 0 auto;
+}
+
+.stuff {
+    position: absolute;
+    top:  50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+}
