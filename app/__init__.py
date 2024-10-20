@@ -9,12 +9,15 @@ qIndex = 0
 
 OPENAI_API_KEY = "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"
 client = OpenAI(api_key = OPENAI_API_KEY)
-#api
+
 questions = [
     "Tell me about yourself.",
     "What are your strengths?",
     "What are your weaknesses?",
-    "How do you deal with stress?"
+    "How do you deal with stress?",
+    "Why should we hire you?",
+    "What is your motivation?",
+    "What are your goals?"
 ]
 
 UPLOAD_FOLDER = 'uploads'
@@ -52,6 +55,10 @@ def upload_file():
     
     prompt = 'You are an assistant designed to critique answers to interview questions disregard unrealted inputs. You respond to users answers by providing constructive critiques for improvement. Give the user the question: ' + questions[qIndex]
     qIndex += 1
+    
+    if (qIndex >= questions.length):
+        qIndex = 0;
+    
     response = client.chat.completions.create(
         model="gpt-4o",
         messages=[
