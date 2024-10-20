@@ -59,12 +59,12 @@ def getTranscriptionResultURL(audio_url):
  #save transcript 
 def saveTranscript(audio_url, filename):
     data, error = getTranscriptionResultURL(audio_url)
-    
+    return data['text']
+
     if data: 
         text_filename = filename + ".txt"
         with open(text_filename, "w") as f:
             f.write(data['text'])
-        print('Transcription saved :D')
     elif error:
         print("Error >:(", error)
 

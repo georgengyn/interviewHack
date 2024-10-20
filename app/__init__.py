@@ -1,5 +1,5 @@
 from flask import Flask, render_template, request, jsonify, redirect, url_for
-from transcribeTxt import upload,transcribe, poll,getTranscriptionResultURL,saveTranscript
+from transcribeTxt import upload,saveTranscript
 import os
 
 app = Flask(__name__)
@@ -41,11 +41,7 @@ def upload_file():
     qIndex += 1
 
     audio_url = upload("uploads/recording.mp3")
-    saveTranscript(audio_url, "transcription")
-    
-    text = ""
-    with open('transcription.txt', 'r') as file:
-        text = file.read().replace('\n', '')
+    text = saveTranscript(audio_url, "transcription")
     
     print(text)
     #when qIndex reaches all question, finish interview
