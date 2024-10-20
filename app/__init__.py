@@ -9,7 +9,7 @@ qIndex = 0
 
 OPENAI_API_KEY = "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"
 client = OpenAI(api_key = OPENAI_API_KEY)
-
+#api
 questions = [
     "Tell me about yourself.",
     "What are your strengths?",
